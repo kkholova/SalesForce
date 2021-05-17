@@ -30,7 +30,7 @@ public abstract class BaseTest {
         options.addArguments("--disable-notifications");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);//неявные ожидания
-        wait = new WebDriverWait(driver,5);
+        wait = new WebDriverWait(driver,15);
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
