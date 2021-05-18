@@ -4,11 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class AccountListPage extends BasePage{
+
+public class AccountListPage extends BasePage {
     public static final By NEW_ACCOUNT_BUTTON = By.cssSelector("[title=New]");
     public static final By SAVE_NEW_ACCOUNT_BUTTON = By.cssSelector("[title=Save]");
     String fillInFields = "//span[contains(text(),'%s')]//ancestor::label[@data-aura-class='uiLabel']//following-sibling::*";
@@ -30,18 +30,20 @@ public class AccountListPage extends BasePage{
         return this;
     }
 
+    public void fillInAField(String fieldName){
+        if(fieldName.equals("Account Name")){
+            driver.findElement(By.xpath(String.format(fillInAccountName, fieldName))).sendKeys("TestText");
+        } else if(fieldName.equals("Employees")||fieldName.equals("Annual Revenue")) {
+            driver.findElement(By.xpath(String.format(fillInFields, fieldName))).sendKeys("123456");
+        } else{
+            driver.findElement(By.xpath(String.format(fillInFields, fieldName))).sendKeys("TestText");
+        }
+
+    }
     public void createNewAccount(){
         driver.findElement(NEW_ACCOUNT_BUTTON).click();
     }
 
-    public void fillInAField(String fieldName){
-        driver.findElement(By.xpath(String.format(fillInFields, fieldName))).sendKeys("TestText");
-
-    }
-
-    public void fillInAccountName(String fieldName){
-        driver.findElement(By.xpath(String.format(fillInAccountName, fieldName))).sendKeys("TestText");
-    }
 
 //    public void dropDowns(String fieldName){
 //        driver.findElement(By.xpath(String.format(dropDownFields, fieldName))).click();
@@ -49,8 +51,13 @@ public class AccountListPage extends BasePage{
 //
 //    }
 
+//    public void chooseASection(int index){
+//        List<WebElement> allContextBar = driver.findElements(By.cssSelector("[data-id]"));
+//        allContextBar.get(index).click();
+//    }
+
     public void fillInNewAccountForm(){
-        fillInAccountName("Account Name");
+        fillInAField("Account Name");
         fillInAField("Phone");
         fillInAField("Fax");
         fillInAField("Website");
@@ -70,5 +77,11 @@ public class AccountListPage extends BasePage{
         fillInAField("Shipping Zip/Postal Code");
         fillInAField("Shipping Country");
         driver.findElement(SAVE_NEW_ACCOUNT_BUTTON).click();
+    }
+
+    public boolean accountIsCreated(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//slot[@name = 'primaryField']//child::span[contains(text(),'TestText')]")));
+        return driver.findElement(By.xpath("//slot[@name = 'primaryField']//child::span[contains(text(),'TestText')]")).isDisplayed();
+
     }
 }
