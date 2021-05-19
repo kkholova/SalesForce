@@ -12,6 +12,4 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(homePage.isPageOpened(),"Log in failed");
 
     }
-
-
 }
