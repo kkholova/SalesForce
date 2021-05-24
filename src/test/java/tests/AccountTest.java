@@ -47,7 +47,7 @@ public class AccountTest extends BaseTest {
         loginPage
                 .open()
                 .login(USER, PASSWORD);
-        Account account = new Account("Paul", "+3933949566654", "tut.by", "+484848484", "Analyst",
+        Account account = new Account("James", "+3933949566654", "tut.by", "+484848484", "Analyst",
                 "Apparel", "100", "50", "description", "Billing St.", "shipping St.",
                 "Minsk", "Minsk", "Rio", "Rio", "338838", "Belarus", "039393",
                 "Brasil");
@@ -56,11 +56,9 @@ public class AccountTest extends BaseTest {
                 .clickNew()
                 .create(account);
         accountModal.save();
-//        accountDetailsPage.openDetailsTab()
+//        accountDetailsPage.openDetailsTab();
         accountDetailsPage.validateAccount(account);
     }
-
-
 }
 
 

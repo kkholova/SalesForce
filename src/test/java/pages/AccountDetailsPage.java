@@ -31,18 +31,12 @@ public class AccountDetailsPage extends BasePage {
         validateInput("Type", account.getOption());
         validateInput("Industry", account.getIndustry());
         validateInput("Employees", account.getEmployees());
-        validateInput("Annual Revenue", account.getAnnualRevenue());
+        validateInput("Annual Revenue", String.format("$"+account.getAnnualRevenue()));
         validateInput("Description", account.getDescription());
-        validateInput("Billing Street", account.getBillingStreet());
-        validateInput("Shipping Street", account.getShippingStreet());
-        validateInput("Billing City", account.getBillingCity());
-        validateInput("Billing State/Province", account.getBillingState());
-        validateInput("Shipping City", account.getShippingCity());
-        validateInput("Shipping State/Province", account.getShippingState());
-        validateInput("Billing Zip/Postal Code", account.getBillingZip());
-        validateInput("Billing Country", account.getBillingCountry());
-        validateInput("Shipping Zip/Postal Code", account.getShippingZip());
-        validateInput("Shipping Country", account.getShippingCountry());
+        validateInput("Billing Address", String.format("%s\n%s, %s %s\n%s", account.getBillingStreet(),account.getBillingCity(),account.getBillingState(),
+                account.getBillingZip(),account.getBillingCountry()));
+        validateInput("Shipping Address", String.format("%s\n%s, %s %s\n%s", account.getShippingStreet(),account.getShippingCity(),account.getShippingState(),
+                account.getShippingZip(),account.getShippingCountry()));
 
     }
 }
