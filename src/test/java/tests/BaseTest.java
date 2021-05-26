@@ -24,6 +24,7 @@ public abstract class BaseTest {
     AccountDetailsPage accountDetailsPage;
     AccountModal accountModal;
     ContactsModal contactsModal;
+    ContactDetailPage contactDetailPage;
     public static final String USER ="katekholova-6aca@force.com";
     public static final String PASSWORD ="Kk7571255";
 
@@ -51,6 +52,7 @@ public abstract class BaseTest {
         accountDetailsPage = new AccountDetailsPage(driver);
         accountModal = new AccountModal(driver);
         contactsModal = new ContactsModal(driver);
+        contactDetailPage = new ContactDetailPage(driver);
     }
 
 

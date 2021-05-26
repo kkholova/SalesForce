@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ContactsModal extends BasePage{
     public static final By MODAL_TITLE = By.xpath("//h2[text() = 'New Contact']");
-    public static final By SAVE_NEW_CONTACT_BUTTON = By.cssSelector("[name=SaveEdit]");
+    public static final By SAVE_NEW_CONTACT_BUTTON = By.xpath("//button[contains(@name,'SaveEdit')]");
 
     public ContactsModal(WebDriver driver) {
         super(driver);

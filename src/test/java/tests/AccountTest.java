@@ -26,7 +26,7 @@ public class AccountTest extends BaseTest {
         loginPage
                 .open()
                 .login(USER, PASSWORD);
-        Account account = new Account("Sasha", "+39339494", "tut.by", "+484848484", "Analyst",
+        Account account = new Account("Vlad", "+39339494", "tut.by", "+484848484", "Analyst",
                 "Apparel", "100", "50", "description", "Billing St.", "shipping St.",
                 "Minsk", "Minsk", "Rio", "Rio", "338838", "Belarus", "039393",
                 "Brasil");
@@ -37,7 +37,7 @@ public class AccountTest extends BaseTest {
         accountModal.save();
 //        accountDetailsPage.openDetailsTab()
 //                .validateAccount(account);
-        assertTrue(accountListPage.accountIsCreated("Sasha"), "Account wasn't created");
+        assertTrue(accountListPage.accountIsCreated("Vlad"), "Account wasn't created");
 //        accountListPage.createNewAccount();
 //        accountListPage.fillInNewAccountForm();
     }

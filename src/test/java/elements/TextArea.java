@@ -7,7 +7,7 @@ public class TextArea {
     WebDriver driver;
     String label;
     String inputLocator = "//*[contains(@class,'modal-body')]//span[text()='%s']/ancestor::div[contains(@class,'uiInput')]//textarea";
-    String inputLocatorContacts = "//*[contains(@class,'modal-body')]//label[text()='Mailing Street']/ancestor::lightning-textarea//textarea";
+    String inputLocatorContacts = "//*[contains(@class,'modal-body')]//label[text()='%s']/ancestor::lightning-textarea//textarea";
 
     public TextArea(WebDriver driver,String label){
         this.driver = driver;

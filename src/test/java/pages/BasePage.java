@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import java.util.ArrayList;
 
 
 public abstract class BasePage {
@@ -34,7 +33,8 @@ public abstract class BasePage {
     }
 
     public void validateInput(String label, String expected){
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//slot[@slot = 'outputField']";
+       String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//slot[@slot='outputField']//child::*";
+//        String locator = "//span[text()='%s']/ancestor::force-record-layout-item//*[@data-output-element-id='output-field']";
         Assert.assertEquals(
                 driver.findElement(By.xpath(String.format(locator,label))).getText(),
                 expected,
