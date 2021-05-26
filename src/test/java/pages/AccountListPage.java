@@ -74,28 +74,7 @@ public class AccountListPage extends BasePage {
 //        allContextBar.get(1).click();
 //    }
 
-//    public void fillInNewAccountForm(){
-//        fillInAField("Account Name");
-//        fillInAField("Phone");
-//        fillInAField("Fax");
-//        fillInAField("Website");
-////        selectDropDowns("Type");
-//        fillInAField("Employees");//should be numeric
-////        selectDropDowns("Industry");
-//        fillInAField("Annual Revenue");//should be numeric
-//        fillInAField("Description");
-//        fillInAField("Billing Street");
-//        fillInAField("Shipping Street");
-//        fillInAField("Billing City");
-//        fillInAField("Billing State/Province");
-//        fillInAField("Shipping City");
-//        fillInAField("Shipping State/Province");
-//        fillInAField("Billing Zip/Postal Code");
-//        fillInAField("Billing Country");
-//        fillInAField("Shipping Zip/Postal Code");
-//        fillInAField("Shipping Country");
-//        driver.findElement(SAVE_NEW_ACCOUNT_BUTTON).click();
-//    }
+
 
 
 }
