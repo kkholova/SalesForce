@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(description = "Positive test for login")
     public void login(){
         loginPage.open();
         Assert.assertTrue(loginPage.isPageOpened(),"Home page was not opened");

@@ -1,12 +1,14 @@
 package pages;
 
-import elements.DropDown;
-import elements.Input;
-import elements.TextArea;
+import elements.lightning.DropDownLightning;
+import elements.lightning.InputLightning;
+import elements.lightning.TextAreaLightning;
+import io.qameta.allure.Step;
 import models.Contacts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 
 public class ContactsModal extends BasePage{
     public static final By MODAL_TITLE = By.xpath("//h2[text() = 'New Contact']");
@@ -19,39 +21,40 @@ public class ContactsModal extends BasePage{
         return isExist(MODAL_TITLE);
     }
 
+    @Step("Create new contact")
     public void create (Contacts contact){
-        new Input(driver, "Phone").writeContact(contact.getPhone());
-        new Input(driver, "Mobile").writeContact(contact.getMobile());
-        new DropDown(driver,"Salutation").selectForNewContact(contact.getSalutation());
-        new Input(driver, "First Name").writeContact(contact.getFirstName());
-        new Input(driver, "Last Name").writeContact(contact.getLastName());
-        new DropDown(driver, "Account Name").selectForNewContactSearchFields(contact.getAccountName());
+        new InputLightning(driver, "Phone").writeContactLightning(contact.getPhone());
+        new InputLightning(driver, "Mobile").writeContactLightning(contact.getMobile());
+        new DropDownLightning(driver,"Salutation").selectForNewLightningField(contact.getSalutation());
+        new InputLightning(driver, "First Name").writeContactLightning(contact.getFirstName());
+        new InputLightning(driver, "Last Name").writeContactLightning(contact.getLastName());
+        new DropDownLightning(driver, "Account Name").selectForNewSearchLightningFields(contact.getAccountName());
 //        new DropDown(driver,"Industry").select(account.getIndustry());
-        new Input(driver, "Email").writeContact(contact.getEmail());
-        new Input(driver, "Title").writeContact(contact.getTitle());
-        new DropDown(driver, "Reports To").selectForNewContactSearchFields(contact.getReportsTo());
-        new TextArea(driver, "Mailing Street").writeTextareaForContacts(contact.getMailingStreet());
-        new TextArea(driver, "Other Street").writeTextareaForContacts(contact.getOtherStreet());
-        new Input(driver, "Mailing City").writeContact(contact.getMailingCity());
-        new Input(driver, "Mailing State/Province").writeContact(contact.getMailingState());
-        new Input(driver, "Mailing Zip/Postal Code").writeContact(contact.getMailingZip());
-        new Input(driver, "Mailing Country").writeContact(contact.getMailingCountry());
-        new Input(driver, "Other City").writeContact(contact.getOtherCity());
-        new Input(driver, "Other State/Province").writeContact(contact.getOtherState());
-        new Input(driver, "Other Zip/Postal Code").writeContact(contact.getOtherZip());
-        new Input(driver, "Other Country").writeContact(contact.getOtherCountry());
-        new Input(driver, "Fax").writeContact(contact.getFax());
-        new Input(driver, "Home Phone").writeContact(contact.getHomePhone());
-        new Input(driver, "Other Phone").writeContact(contact.getOtherPhone());
-        new Input(driver, "Asst. Phone").writeContact(contact.getAsstPhone());
-        new Input(driver, "Assistant").writeContact(contact.getAssistant());
-        new Input(driver, "Department").writeContact(contact.getDepartment());
-        new DropDown(driver,"Lead Source").selectForNewContact(contact.getLeadSource());
-        new Input(driver,"Birthdate").writeContact(contact.getBirthdate());
-        new TextArea(driver, "Description").writeTextareaForContacts(contact.getDescription());
+        new InputLightning(driver, "Email").writeContactLightning(contact.getEmail());
+        new InputLightning(driver, "Title").writeContactLightning(contact.getTitle());
+        new DropDownLightning(driver, "Reports To").selectForNewSearchLightningFields(contact.getReportsTo());
+        new TextAreaLightning(driver, "Mailing Street").writeTextareaForLightningFiels(contact.getMailingStreet());
+        new TextAreaLightning(driver, "Other Street").writeTextareaForLightningFiels(contact.getOtherStreet());
+        new InputLightning(driver, "Mailing City").writeContactLightning(contact.getMailingCity());
+        new InputLightning(driver, "Mailing State/Province").writeContactLightning(contact.getMailingState());
+        new InputLightning(driver, "Mailing Zip/Postal Code").writeContactLightning(contact.getMailingZip());
+        new InputLightning(driver, "Mailing Country").writeContactLightning(contact.getMailingCountry());
+        new InputLightning(driver, "Other City").writeContactLightning(contact.getOtherCity());
+        new InputLightning(driver, "Other State/Province").writeContactLightning(contact.getOtherState());
+        new InputLightning(driver, "Other Zip/Postal Code").writeContactLightning(contact.getOtherZip());
+        new InputLightning(driver, "Other Country").writeContactLightning(contact.getOtherCountry());
+        new InputLightning(driver, "Fax").writeContactLightning(contact.getFax());
+        new InputLightning(driver, "Home Phone").writeContactLightning(contact.getHomePhone());
+        new InputLightning(driver, "Other Phone").writeContactLightning(contact.getOtherPhone());
+        new InputLightning(driver, "Asst. Phone").writeContactLightning(contact.getAsstPhone());
+        new InputLightning(driver, "Assistant").writeContactLightning(contact.getAssistant());
+        new InputLightning(driver, "Department").writeContactLightning(contact.getDepartment());
+        new DropDownLightning(driver,"Lead Source").selectForNewLightningField(contact.getLeadSource());
+        new InputLightning(driver,"Birthdate").writeContactLightning(contact.getBirthdate());
+        new TextAreaLightning(driver, "Description").writeTextareaForLightningFiels(contact.getDescription());
     }
 
-
+    @Step("Click on save new contact button")
     public void save(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(SAVE_NEW_CONTACT_BUTTON));
         driver.findElement(SAVE_NEW_CONTACT_BUTTON).click();

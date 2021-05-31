@@ -1,8 +1,9 @@
 package pages;
 
-import elements.DropDown;
-import elements.Input;
-import elements.TextArea;
+import elements.uiInput.DropDown;
+import elements.uiInput.Input;
+import elements.uiInput.TextArea;
+import io.qameta.allure.Step;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,7 @@ public class AccountModal extends BasePage{
         return isExist(MODAL_TITLE);
     }
 
+    @Step("Create new account")
     public void create (Account account){
         new Input(driver, "Account Name").write(account.getAccountName());
         new Input(driver, "Website").write(account.getWebsite());
@@ -43,7 +45,7 @@ public class AccountModal extends BasePage{
         new Input(driver, "Shipping Zip/Postal Code").write(account.getShippingZip());
         new Input(driver, "Shipping Country").write(account.getShippingCountry());
     }
-
+    @Step("Click on save new account buttton")
     public void save(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(SAVE_NEW_ACCOUNT_BUTTON));
         driver.findElement(SAVE_NEW_ACCOUNT_BUTTON).click();

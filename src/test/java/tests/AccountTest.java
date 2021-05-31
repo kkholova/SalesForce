@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
 
 public class AccountTest extends BaseTest {
-    @Test
+    @Test(description = "Account page is opened successfully")
     public void accountsPageOpenedSuccessfully() {
         boolean isOpened = loginPage
                 .open()
@@ -21,7 +21,7 @@ public class AccountTest extends BaseTest {
         assertTrue(isOpened, "Home Page не открылась");
     }
 
-    @Test
+    @Test(description = "Test that new contact was created")
     public void newAccountIsCreated() {
         loginPage
                 .open()
@@ -42,7 +42,7 @@ public class AccountTest extends BaseTest {
 //        accountListPage.fillInNewAccountForm();
     }
 
-    @Test
+    @Test(description = "Test that new account contain correct data")
     public void dataInCreatedAccountIsCorrect() {
         loginPage
                 .open()

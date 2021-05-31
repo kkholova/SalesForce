@@ -9,7 +9,7 @@ import org.testng.Assert;
 
 
 public abstract class BasePage {
-    public static final String BASE_URL ="https://godel.my.salesforce.com";
+    public static final String BASE_URL ="https://godelnew.lightning.force.com/";
     WebDriver driver;
     WebDriverWait wait;
 
