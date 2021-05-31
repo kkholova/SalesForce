@@ -25,11 +25,15 @@ public abstract class BaseTest {
     AccountModal accountModal;
     ContactsModal contactsModal;
     ContactDetailPage contactDetailPage;
-    public static final String USER ="katekholova-6aca@force.com";
-    public static final String PASSWORD ="Kk7571255";
+    LeadsPage leadsPage;
+    LeadsModal leadsModal;
+    LeadDetailsPage leadDetailsPage;
+    ConvertLeadModal convertLeadModal;
+    public static final String USER ="katekholova-48yh@force.com";
+    public static final String PASSWORD ="KKKkkk!80297571255";
 
     @Parameters({"browser"})
-    @BeforeMethod
+    @BeforeMethod(description = "Open browser")
     public void setUp(@Optional("chrome") String browser, ITestContext testContext){
         if(browser.equals(("chrome"))) {
             WebDriverManager.chromedriver().setup();
@@ -43,7 +47,7 @@ public abstract class BaseTest {
         }
         testContext.setAttribute("driver", driver);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);//неявные ожидания
-        wait = new WebDriverWait(driver,20);
+        wait = new WebDriverWait(driver,25);
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
@@ -53,13 +57,17 @@ public abstract class BaseTest {
         accountModal = new AccountModal(driver);
         contactsModal = new ContactsModal(driver);
         contactDetailPage = new ContactDetailPage(driver);
+        leadsPage = new LeadsPage(driver);
+        leadsModal = new LeadsModal(driver);
+        leadDetailsPage = new LeadDetailsPage(driver);
+        convertLeadModal = new ConvertLeadModal(driver);
     }
 
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() {
-        driver.quit();
-    }
+//    @AfterMethod(alwaysRun = true,description = "Close browser")
+//    public void tearDown() {
+//        driver.quit();
+//    }
 
 
 }

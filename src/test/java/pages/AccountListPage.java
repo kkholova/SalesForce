@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -35,6 +36,7 @@ public class AccountListPage extends BasePage {
         return this;
     }
 
+    @Step("Click on new account form creation button")
     public AccountModal clickNew() {
         driver.findElement(NEW_ACCOUNT_BUTTON).click();
         return new AccountModal(driver);

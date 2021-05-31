@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
         super(driver);
     }
 
-    //TODO implement
     @Override
     public boolean isPageOpened() {
         return false;

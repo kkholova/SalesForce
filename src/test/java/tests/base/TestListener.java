@@ -6,8 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import utils.AllureUtils;
 
-    public class TestListener implements ITestListener {
+public class TestListener implements ITestListener {
 
         public void onTestStart(ITestResult result) {
             System.out.println(String.format("Test started: %s,",result.getName()));
@@ -15,7 +16,7 @@ import org.testng.ITestResult;
         //TODO API request to set status of the test
         public void onTestFailure(ITestResult result) {
             WebDriver driver = (WebDriver) result.getTestContext().getAttribute("driver");
-            ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            AllureUtils.takeScreenshot(driver);
             System.out.println(String.format("Test failed: %s",result.getName()));
 
         }
