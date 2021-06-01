@@ -21,8 +21,9 @@ public class ConvertLeadModal extends BasePage{
     public boolean isPageOpened() {
         return isExist(MODAL_TITLE_FOR_LEAD_CONVERTION);
     }
-    public void convertLead(){
+    public void convertLead() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfElementLocated(CONVERT_BUTTON));
+        Thread.sleep(1000);
         driver.findElement(CONVERT_BUTTON).click();
 
     }
@@ -32,6 +33,7 @@ public class ConvertLeadModal extends BasePage{
         return isExist(LEAD_CONVERTED_TEXT);
     }
 
+    @Step("Go to leads page after converting Lead")
     public void goToLeads(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(GO_TO_LEADS_BUTTON));
         driver.findElement(GO_TO_LEADS_BUTTON).click();

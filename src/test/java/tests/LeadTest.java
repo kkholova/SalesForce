@@ -53,7 +53,7 @@ public class LeadTest extends BaseTest{
     }
 
     @Test(description = "Test for new lead to go through all statuses")
-    public void newLeadShouldGoToConvertedStatus() {
+    public void newLeadShouldGoToConvertedStatus() throws InterruptedException {
         loginPage
                 .open()
                 .login(USER, PASSWORD);
@@ -71,15 +71,10 @@ public class LeadTest extends BaseTest{
         assertTrue(isOpened, "Modal for lead convertation wasn't opened");
         convertLeadModal.convertLead();
 
-//        boolean isLeadConverted = convertLeadModal
-//                            .isLeadConverted();
-//        assertTrue(isLeadConverted, "Lead wasn't converted");
-//        convertLeadModal.goToLeads();
-
-
-
-
-
+        boolean isLeadConverted = convertLeadModal
+                            .isLeadConverted();
+        assertTrue(isLeadConverted, "Lead wasn't converted");
+        convertLeadModal.goToLeads();
 
     }
 

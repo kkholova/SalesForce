@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LeadsModal extends BasePage {
     public static final By MODAL_TITLE = By.xpath("//h2[text() = 'New Lead']");
-    public static final By SAVE_NEW_CONTACT_BUTTON = By.xpath("//button[contains(@name,'SaveEdit')]");
+    public static final By SAVE_NEW_LEAD_BUTTON = By.xpath("//button[contains(@name,'SaveEdit')]");
 
     public LeadsModal(WebDriver driver) {
         super(driver);
@@ -21,7 +21,7 @@ public class LeadsModal extends BasePage {
         return isExist(MODAL_TITLE);
     }
 
-    @Step("Create new contact")
+    @Step("Create new lead")
     public void create (Leads lead){
         new DropDownLightning(driver, "Lead Status").selectForNewLightningField(lead.getLeadStatus());
         new InputLightning(driver, "Phone").writeContactLightning(lead.getPhone());
@@ -45,10 +45,10 @@ public class LeadsModal extends BasePage {
         new TextAreaLightning(driver, "Description").writeTextareaForLightningFiels(lead.getDescription());
     }
 
-    @Step("Click on save new contact button")
+    @Step("Click on save new Lead button")
     public void save(){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(SAVE_NEW_CONTACT_BUTTON));
-        driver.findElement(SAVE_NEW_CONTACT_BUTTON).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SAVE_NEW_LEAD_BUTTON));
+        driver.findElement(SAVE_NEW_LEAD_BUTTON).click();
     }
 
 }
