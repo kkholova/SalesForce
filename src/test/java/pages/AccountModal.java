@@ -4,11 +4,13 @@ import elements.uiInput.DropDown;
 import elements.uiInput.Input;
 import elements.uiInput.TextArea;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Log4j2
 public class AccountModal extends BasePage{
     public static final By MODAL_TITLE = By.xpath("//h2[text() = 'New Account']");
     public static final By SAVE_NEW_ACCOUNT_BUTTON = By.cssSelector("[title=Save]");
@@ -25,6 +27,7 @@ public class AccountModal extends BasePage{
 
     @Step("Create new account")
     public void create (Account account){
+        log.info("Create new account");
         new Input(driver, "Account Name").write(account.getAccountName());
         new Input(driver, "Website").write(account.getWebsite());
         new Input(driver, "Phone").write(account.getPhone());
@@ -45,8 +48,10 @@ public class AccountModal extends BasePage{
         new Input(driver, "Shipping Zip/Postal Code").write(account.getShippingZip());
         new Input(driver, "Shipping Country").write(account.getShippingCountry());
     }
-    @Step("Click on save new account buttton")
+
+    @Step("Click on save new account button")
     public void save(){
+        log.info("Click on Save account button");
         wait.until(ExpectedConditions.visibilityOfElementLocated(SAVE_NEW_ACCOUNT_BUTTON));
         driver.findElement(SAVE_NEW_ACCOUNT_BUTTON).click();
     }

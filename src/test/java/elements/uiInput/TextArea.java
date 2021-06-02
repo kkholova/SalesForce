@@ -1,8 +1,11 @@
 package elements.uiInput;
 
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class TextArea {
     WebDriver driver;
     String label;
@@ -13,8 +16,9 @@ public class TextArea {
         this.label = label;
     }
 
+    @Step("Fill Input fields with data: {text}")
     public void write(String text){
-        System.out.println(String.format("Writing text '%s' into input with label '%s'",text,label));
+        log.info(String.format("Fill in a field %s, with text %s, by locator%s", label,text,inputLocator));
         driver.findElement(By.xpath(String.format(inputLocator,label))).sendKeys(text);
     }
 

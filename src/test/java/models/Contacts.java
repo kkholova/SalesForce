@@ -1,5 +1,6 @@
 package models;
 
+
 public class Contacts {
     String phone;
     String mobile;
