@@ -8,12 +8,14 @@
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="tests.AccountTest"/>
+            <class name="tests.LeadTest"/>
         </classes>
     </test> <!-- Test -->
     <test name="test 2">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="tests.ContactTest"/>
+            <class name="tests.LoginTest"/>
         </classes>
     </test> <!-- Test -->
 
