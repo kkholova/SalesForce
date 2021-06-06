@@ -9,8 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 @Log4j2
 public class ContactsPage extends BasePage {
     public static final By NEW_CONTACT_BUTTON = By.cssSelector("[title=New]");
+    public static final By MENU_CONTACTS = By.xpath("//*[@data-id = 'Contact']");
     String contactIsCreated = "//slot[@name = 'primaryField']//child::*[contains(text(),'%s')]";
-    By ICON = By.cssSelector("img[title=Contacts]");
+    By ICON = By.xpath("//img[@title = 'Contacts']");
 
     public ContactsPage(WebDriver driver) {
         super(driver);
@@ -40,5 +41,9 @@ public class ContactsPage extends BasePage {
         return driver.findElement(By.xpath(String.format(contactIsCreated,contactLastName))).isDisplayed();
 
     }
+    public void clickOnContactsInMenu(){
+        driver.findElement(MENU_CONTACTS).click();
+    }
+
 
 }

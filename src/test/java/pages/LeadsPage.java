@@ -12,9 +12,10 @@ import static org.testng.Assert.assertTrue;
 @Log4j2
 public class LeadsPage extends BasePage {
     public static final By NEW_LEADS_BUTTON = By.cssSelector("[title=New]");
+    public static final By MENU_LEADS = By.xpath("//*[@data-id = 'Lead']");
 //    public static final By STATUS_COMPLETE_BUTTON = By.xpath("//button//span[text() = 'Mark Status as Complete']");
-    String leadIsCreated = "//slot[@name = 'primaryField']//child::span[contains(text(),'%s')]";
-    By ICON = By.xpath("img[title=Leads]");
+    String leadIsCreated = "//slot[@name = 'primaryField']//child::*[contains(text(),'%s')]";
+    By ICON = By.xpath("//img[@title = 'Leads']");
 
 
     public LeadsPage(WebDriver driver) {
@@ -36,6 +37,7 @@ public class LeadsPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ICON));
         return isExist(ICON);
     }
 
@@ -47,7 +49,9 @@ public class LeadsPage extends BasePage {
         return driver.findElement(By.xpath(String.format(leadIsCreated, contactLastName))).isDisplayed();
     }
 
-
+    public void clickOnLeadsInMenu(){
+        driver.findElement(MENU_LEADS).click();
+    }
 
 
 }

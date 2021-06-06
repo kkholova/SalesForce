@@ -64,10 +64,10 @@ public abstract class BaseTest {
     }
 
 
-//    @AfterMethod(alwaysRun = true,description = "Close browser")
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    @AfterMethod(alwaysRun = true,description = "Close browser")
+    public void tearDown() {
+        driver.quit();
+    }
 
 
 }

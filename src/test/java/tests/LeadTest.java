@@ -12,12 +12,14 @@ public class LeadTest extends BaseTest{
 
 
     @Test(description = "Test that leads page is opened")
-    public void createNewLead() {
+    public void newLeadPageIsOpened() {
         loginPage.open()
                 .login(USER, PASSWORD);
+        leadsPage.open();
+        accountListPage.clickOnAccountInMenu();
+        leadsPage.clickOnLeadsInMenu();
         boolean isOpened = leadsPage
-                .open()
-                .isPageOpened();
+                   .isPageOpened();
         assertTrue(isOpened, "Leads page wasn't opened");
     }
 
@@ -26,9 +28,6 @@ public class LeadTest extends BaseTest{
         loginPage
                 .open()
                 .login(USER, PASSWORD);
-//        Leads lead = new Leads("New","39393939","Ms.","Kate","Kholova","Indi","sasha@mail.ru",
-//                "PO","Hot","Street","onliner.by","Minsk","Minsk","03934800","Belarus","500",
-//                "Employee Referral","75","Banking","description");
         Leads lead = LeadFactory.get();
         leadsPage
                 .open()
@@ -43,9 +42,6 @@ public class LeadTest extends BaseTest{
         loginPage
                 .open()
                 .login(USER, PASSWORD);
-//        Leads lead = new Leads("New","39393939","Mr.","Sasha","Kholov","Indi","sasha@mail.ru",
-//                "PO","Hot","Street","onliner.by","Minsk","Minsk","03934800","Belarus","500",
-//                "Employee Referral","75","Banking","description");
         Leads lead = LeadFactory.get();
         leadsPage
                 .open()
@@ -60,9 +56,6 @@ public class LeadTest extends BaseTest{
         loginPage
                 .open()
                 .login(USER, PASSWORD);
-//        Leads lead = new Leads("New","39393939","Mr.","Sasha","Kholov","Indi","sasha@mail.ru",
-//                "PO","Hot","Street","onliner.by","Minsk","Minsk","03934800","Belarus","500",
-//                "Employee Referral","75","Banking","description");
         Leads lead = LeadFactory.get();
        leadsPage
                 .open()

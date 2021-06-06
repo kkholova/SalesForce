@@ -14,11 +14,13 @@ import java.util.List;
 @Log4j2
 public class AccountListPage extends BasePage {
     public static final By NEW_ACCOUNT_BUTTON = By.cssSelector("[title=New]");
+    public static final By MENU_ACCOUNT = By.xpath("//*[@data-id = 'Account']");
     String accountIsCreated = "//slot[@name = 'primaryField']//child::span[contains(text(),'%s')]";
 //    public static final By SAVE_NEW_ACCOUNT_BUTTON = By.cssSelector("[title=Save]");
 //    String fillInFields = "//span[contains(text(),'%s')]//ancestor::label[@data-aura-class='uiLabel']//following-sibling::*";
 //    String fillInAccountName = "//span[contains(text(),'%s')]//ancestor::div[@class='slds-form-element__control']//child::input";
 //    String dropDownFields = "//span[contains(text(),'%s')]//ancestor::div[@class='slds-form-element__control']//child::a";
+
 
     By ICON = By.cssSelector("img[title=Accounts]");
 
@@ -48,6 +50,10 @@ public class AccountListPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(accountIsCreated,accountName))));
         return driver.findElement(By.xpath(String.format(accountIsCreated, accountName))).isDisplayed();
 
+    }
+
+    public void clickOnAccountInMenu(){
+        driver.findElement(MENU_ACCOUNT).click();
     }
 
 //    public void fillInAField(String fieldName){
