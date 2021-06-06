@@ -1,6 +1,7 @@
 package tests;
 
 import models.Contacts;
+import models.LeadFactory;
 import models.Leads;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -25,15 +26,16 @@ public class LeadTest extends BaseTest{
         loginPage
                 .open()
                 .login(USER, PASSWORD);
-        Leads lead = new Leads("New","39393939","Ms.","Kate","Kholova","Indi","sasha@mail.ru",
-                "PO","Hot","Street","onliner.by","Minsk","Minsk","03934800","Belarus","500",
-                "Employee Referral","75","Banking","description");
+//        Leads lead = new Leads("New","39393939","Ms.","Kate","Kholova","Indi","sasha@mail.ru",
+//                "PO","Hot","Street","onliner.by","Minsk","Minsk","03934800","Belarus","500",
+//                "Employee Referral","75","Banking","description");
+        Leads lead = LeadFactory.get();
         leadsPage
                 .open()
                 .clickNew()
                 .create(lead);
         leadsModal.save();
-        assertTrue(leadsPage.leadIsCreated(lead.getSalutation()+" "+lead.getFirstName()+" "+lead.getLastName()), "Contact wasn't created");
+        assertTrue(leadsPage.leadIsCreated(lead.getSalutation()+" "+lead.getFirstName()+" "+lead.getLastName()), "Lead wasn't created");
     }
 
     @Test(description = "Test that data in new lead is correct")
@@ -41,9 +43,10 @@ public class LeadTest extends BaseTest{
         loginPage
                 .open()
                 .login(USER, PASSWORD);
-        Leads lead = new Leads("New","39393939","Mr.","Sasha","Kholov","Indi","sasha@mail.ru",
-                "PO","Hot","Street","onliner.by","Minsk","Minsk","03934800","Belarus","500",
-                "Employee Referral","75","Banking","description");
+//        Leads lead = new Leads("New","39393939","Mr.","Sasha","Kholov","Indi","sasha@mail.ru",
+//                "PO","Hot","Street","onliner.by","Minsk","Minsk","03934800","Belarus","500",
+//                "Employee Referral","75","Banking","description");
+        Leads lead = LeadFactory.get();
         leadsPage
                 .open()
                 .clickNew()
@@ -57,10 +60,11 @@ public class LeadTest extends BaseTest{
         loginPage
                 .open()
                 .login(USER, PASSWORD);
-        Leads lead = new Leads("New","39393939","Mr.","Sasha","Kholov","Indi","sasha@mail.ru",
-                "PO","Hot","Street","onliner.by","Minsk","Minsk","03934800","Belarus","500",
-                "Employee Referral","75","Banking","description");
-        leadsPage
+//        Leads lead = new Leads("New","39393939","Mr.","Sasha","Kholov","Indi","sasha@mail.ru",
+//                "PO","Hot","Street","onliner.by","Minsk","Minsk","03934800","Belarus","500",
+//                "Employee Referral","75","Banking","description");
+        Leads lead = LeadFactory.get();
+       leadsPage
                 .open()
                 .clickNew()
                 .create(lead);

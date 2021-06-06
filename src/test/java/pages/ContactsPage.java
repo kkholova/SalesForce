@@ -1,10 +1,12 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Log4j2
 public class ContactsPage extends BasePage {
     public static final By NEW_CONTACT_BUTTON = By.cssSelector("[title=New]");
     String contactIsCreated = "//slot[@name = 'primaryField']//child::*[contains(text(),'%s')]";
@@ -27,6 +29,7 @@ public class ContactsPage extends BasePage {
 
     @Step("Open new contact form")
     public ContactsModal clickNew() {
+        log.info("Click on new contact button");
         driver.findElement(NEW_CONTACT_BUTTON).click();
         return new ContactsModal(driver);
     }

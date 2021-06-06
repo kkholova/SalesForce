@@ -1,10 +1,13 @@
 package pages;
 
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Log4j2
 public class AccountDetailsPage extends BasePage {
     public static final By DETAILS_TAB= By.cssSelector("a[data-label = 'Details']");
 
@@ -23,7 +26,9 @@ public class AccountDetailsPage extends BasePage {
         return this;
     }
 
+    @Step("Validate data on account page")
     public void validateAccount(Account account){
+        log.info("Validating data on account page");
         validateInput("Account Name", account.getAccountName());
         validateInput("Website", account.getWebsite());
         validateInput("Phone", account.getPhone());

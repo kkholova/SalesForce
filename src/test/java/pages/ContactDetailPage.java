@@ -1,11 +1,14 @@
 package pages;
 
 
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Contacts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Log4j2
  public class ContactDetailPage extends BasePage {
     public static final By DETAILS_TAB= By.cssSelector("a[data-label = 'Details']");
 
@@ -24,7 +27,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
         return this;
     }
 
+     @Step("Validate data on contact's page")
     public void validateContact(Contacts contact){
+         log.info("Validating validate data on account page");
         validateInput("Name", String.format(contact.getSalutation()+" "+contact.getFirstName()+" "+contact.getLastName()));
         validateInput("Account Name", String.format("%s\n%s %s %s",contact.getAccountName(),"Open",contact.getAccountName(),"Preview"));
         validateInput("Title", contact.getTitle());
