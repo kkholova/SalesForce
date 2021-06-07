@@ -29,8 +29,8 @@ public abstract class BaseTest {
     LeadsModal leadsModal;
     LeadDetailsPage leadDetailsPage;
     ConvertLeadModal convertLeadModal;
-    public static final String USER ="katekholova-48yh@force.com";
-    public static final String PASSWORD ="KKKkkk!80297571255";
+    public static String USER ="katekholova-48yh@force.com";
+    public static String PASSWORD="KKKkkk!80297571255";
 
     @Parameters({"browser"})
     @BeforeMethod(description = "Open browser")
