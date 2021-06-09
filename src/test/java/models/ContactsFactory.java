@@ -14,7 +14,7 @@ public class ContactsFactory {
                 .email(faker.internet().emailAddress())
                 .accountName("Vlad")
                 .title("BA")
-                .reportsTo("Illa Brown")
+                .reportsTo("Shona Wolff")
                 .mailingStreet(faker.address().streetName())
                 .otherStreet(faker.address().streetName())
                 .mailingCity(faker.address().city())
